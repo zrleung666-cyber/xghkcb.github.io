@@ -3,24 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>星光会 · 客服知识库</title>
+  <title>星光会 · 年营收过亿的出海创业者都在加入的社群</title>
   <style>
     :root {
-      --bg: #0d0d1a;
-      --card: #161625;
-      --card-hover: #1e1e32;
-      --border: #2a2a45;
+      --bg: #0a0a1a;
+      --bg2: #12122a;
+      --card: #1a1a35;
+      --card-hover: #222240;
+      --border: #2a2a50;
       --accent: #c9a84c;
       --accent-light: #e8c96a;
-      --text: #e8e8f0;
-      --text-muted: #8888aa;
-      --text-dim: #555577;
+      --accent-dark: #8b6914;
+      --text: #f0f0f8;
+      --text-muted: #9898b8;
+      --text-dim: #6666888;
       --green: #4ade80;
       --red: #f87171;
       --blue: #60a5fa;
       --purple: #a78bfa;
       --orange: #fb923c;
-      --radius: 12px;
+      --radius: 16px;
+      --radius-sm: 10px;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -28,1592 +31,1284 @@
       background: var(--bg);
       color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
-      line-height: 1.7;
+      line-height: 1.8;
       min-height: 100vh;
     }
 
-    /* ── Header ── */
-    .header {
-      background: linear-gradient(135deg, #1a1040 0%, #0d1f3c 50%, #0a2a2a 100%);
-      border-bottom: 1px solid var(--border);
-      padding: 32px 0 28px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(20px);
-    }
-    .header-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    .header-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(201,168,76,0.15);
-      border: 1px solid rgba(201,168,76,0.3);
-      color: var(--accent);
-      font-size: 12px;
-      padding: 3px 12px;
-      border-radius: 20px;
-      margin-bottom: 12px;
-      letter-spacing: 1px;
-    }
-    .header h1 {
-      font-size: 26px;
-      font-weight: 700;
-      background: linear-gradient(90deg, #fff 0%, #c9a84c 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 6px;
-    }
-    .header p {
-      color: var(--text-muted);
-      font-size: 14px;
-    }
-
-    /* ── Search ── */
-    .search-wrap {
-      max-width: 960px;
-      margin: 20px auto 0;
-      padding: 0 24px;
-    }
-    .search-box { position: relative; }
-    .search-box input {
-      width: 100%;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 12px 16px 12px 44px;
-      font-size: 15px;
-      color: var(--text);
-      outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .search-box input:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(201,168,76,0.1);
-    }
-    .search-box input::placeholder { color: var(--text-dim); }
-    .search-box .icon {
-      position: absolute;
-      left: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--text-muted);
-      font-size: 16px;
-    }
-
-    /* ── Nav Pills ── */
-    .nav-wrap {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 20px 24px 0;
-    }
-    .nav-pills {
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
       display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .nav-pill {
-      background: var(--card);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      padding: 6px 16px;
-      border-radius: 20px;
-      font-size: 13px;
-      cursor: pointer;
-      transition: all 0.2s;
-      user-select: none;
-    }
-    .nav-pill:hover { border-color: var(--accent); color: var(--accent); }
-    .nav-pill.active {
-      background: rgba(201,168,76,0.15);
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    /* ── Main ── */
-    .main {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 28px 24px 60px;
-    }
-
-    /* ── Section Title ── */
-    .section-title {
-      font-size: 13px;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 16px;
-      padding-left: 4px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .section-title::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    /* ── Card ── */
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      margin-bottom: 16px;
-      overflow: hidden;
-      transition: border-color 0.2s;
-    }
-    .card:hover { border-color: #3a3a5a; }
-
-    .card-header {
-      padding: 18px 20px 16px;
-      cursor: pointer;
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      user-select: none;
-    }
-    .card-header .q-icon {
-      width: 28px;
-      height: 28px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
-      font-size: 13px;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-    .card-header .arrow {
-      margin-left: auto;
-      color: var(--text-dim);
-      font-size: 12px;
-      transition: transform 0.2s;
-      flex-shrink: 0;
-      margin-top: 4px;
-    }
-    .card.open .arrow { transform: rotate(180deg); }
-
-    .card-body {
-      display: none;
-      padding: 0 20px 18px 60px;
-      color: var(--text-muted);
-      font-size: 14px;
-    }
-    .card.open .card-body { display: block; }
-
-    .q-accent .q-icon { background: rgba(201,168,76,0.15); color: var(--accent); }
-    .q-green  .q-icon { background: rgba(74,222,128,0.1); color: var(--green); }
-    .q-blue   .q-icon { background: rgba(96,165,250,0.1); color: var(--blue); }
-    .q-purple .q-icon { background: rgba(167,139,250,0.1); color: var(--purple); }
-    .q-red    .q-icon { background: rgba(248,113,113,0.1); color: var(--red); }
-    .q-orange .q-icon { background: rgba(251,191,36,0.1); color: var(--orange); }
-
-    /* ── Module Blocks ── */
-    .module { display: none; }
-    .module.active { display: block; }
-
-    /* ── About / Hero ── */
-    .about-hero {
-      background: linear-gradient(135deg, #1a1040 0%, #0d1f3c 100%);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px 24px;
-      margin-bottom: 24px;
+      align-items: center;
+      text-align: center;
+      padding: 60px 24px;
+      background: linear-gradient(180deg, #0d0d2a 0%, #0a0a1a 100%);
       position: relative;
       overflow: hidden;
     }
-    .about-hero::before {
-      content: '星光会';
+    .hero::before {
+      content: '';
       position: absolute;
-      right: -20px;
-      top: -20px;
-      font-size: 120px;
-      font-weight: 900;
-      color: rgba(201,168,76,0.04);
-      line-height: 1;
-      pointer-events: none;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 40%, rgba(201,168,76,0.08) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 60%, rgba(96,165,250,0.05) 0%, transparent 50%);
+      animation: float 20s ease-in-out infinite;
     }
-    .about-hero .tagline {
-      font-size: 20px;
-      font-weight: 700;
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(-2%, -2%); }
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.3);
       color: var(--accent);
-      margin-bottom: 10px;
-      line-height: 1.5;
+      font-size: 13px;
+      padding: 6px 16px;
+      border-radius: 30px;
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 1;
     }
-    .about-hero .desc {
+    .hero-stars {
+      font-size: 16px;
+      letter-spacing: 4px;
+    }
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #fff 0%, var(--accent) 50%, var(--accent-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+      line-height: 1.2;
+    }
+    .hero-sub {
+      font-size: 20px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-tagline {
+      font-size: 16px;
+      color: var(--accent);
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      color: #0a0a1a;
+      padding: 14px 32px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(201,168,76,0.3);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 30px rgba(201,168,76,0.4);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      padding: 14px 32px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      background: rgba(201,168,76,0.05);
+    }
+    .hero-price {
+      margin-top: 40px;
+      position: relative;
+      z-index: 1;
+    }
+    .price-main {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+    .price-old {
+      font-size: 18px;
+      color: var(--text-dim);
+      text-decoration: line-through;
+      margin-left: 8px;
+    }
+    .price-note {
       font-size: 14px;
       color: var(--text-muted);
-      max-width: 600px;
-      line-height: 1.8;
+      margin-top: 8px;
     }
-    .about-hero .price-row {
+
+    /* ── Stats ── */
+    .stats-bar {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 32px 24px;
+    }
+    .stats-inner {
+      max-width: 960px;
+      margin: 0 auto;
       display: flex;
-      align-items: baseline;
-      gap: 12px;
-      margin-top: 20px;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 24px;
     }
-    .about-hero .price {
+    .stat-item {
+      text-align: center;
+    }
+    .stat-num {
+      font-size: 36px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .stat-label {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* ── Section ── */
+    .section {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .section-title h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .section-title p {
+      font-size: 16px;
+      color: var(--text-muted);
+    }
+    .section-title .accent {
+      color: var(--accent);
+    }
+
+    /* ── Benefits ── */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 768px) {
+      .benefits-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 32px; }
+    }
+    .benefit-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .benefit-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(201,168,76,0.4);
+    }
+    .benefit-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+    }
+    .benefit-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    .benefit-card:nth-child(1) .benefit-icon { background: rgba(201,168,76,0.15); }
+    .benefit-card:nth-child(2) .benefit-icon { background: rgba(74,222,128,0.1); }
+    .benefit-card:nth-child(3) .benefit-icon { background: rgba(96,165,250,0.1); }
+    .benefit-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .benefit-subtitle {
+      font-size: 13px;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .benefit-list {
+      list-style: none;
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 2.2;
+    }
+    .benefit-list li::before {
+      content: '✓ ';
+      color: var(--accent);
+    }
+    .benefit-highlight {
+      margin-top: 20px;
+      padding: 16px;
+      background: rgba(201,168,76,0.08);
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(201,168,76,0.15);
+    }
+    .benefit-highlight .num {
       font-size: 28px;
       font-weight: 800;
       color: var(--accent);
     }
-    .about-hero .price-old {
-      font-size: 15px;
-      color: var(--text-dim);
-      text-decoration: line-through;
-    }
-    .about-hero .price-note {
+    .benefit-highlight .label {
       font-size: 12px;
       color: var(--text-muted);
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border);
-      padding: 2px 10px;
-      border-radius: 20px;
     }
 
-    /* ── Founder ── */
+    /* ── Schedule ── */
+    .schedule-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+    .tab-btn {
+      padding: 10px 24px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      color: var(--text-muted);
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab-btn.active {
+      background: var(--accent);
+      color: #0a0a1a;
+      border-color: var(--accent);
+    }
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .schedule-table th {
+      background: rgba(201,168,76,0.1);
+      padding: 14px 16px;
+      text-align: left;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+    }
+    .schedule-table td {
+      padding: 14px 16px;
+      font-size: 14px;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+    }
+    .schedule-table tr:last-child td { border-bottom: none; }
+    .schedule-table tr:hover td { background: var(--card-hover); }
+    .tag {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .tag-training { background: rgba(167,139,250,0.15); color: var(--purple); }
+    .tag-forum { background: rgba(96,165,250,0.15); color: var(--blue); }
+    .tag-study { background: rgba(251,191,36,0.15); color: var(--orange); }
+    .tag-gala { background: rgba(201,168,76,0.15); color: var(--accent); }
+    .tag-new { background: rgba(248,113,113,0.15); color: var(--red); }
+
+    /* ── About ── */
     .founder-card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 20px 24px;
-      margin-bottom: 24px;
+      padding: 32px;
       display: flex;
-      gap: 16px;
+      gap: 24px;
       align-items: flex-start;
+      margin-bottom: 24px;
+    }
+    @media (max-width: 640px) {
+      .founder-card { flex-direction: column; text-align: center; }
     }
     .founder-avatar {
-      width: 56px;
-      height: 56px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), #8b6914);
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      flex-shrink: 0;
+    }
+    .founder-info h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .founder-title {
+      font-size: 14px;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .founder-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    /* ── Audience ── */
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 640px) {
+      .audience-grid { grid-template-columns: 1fr; }
+    }
+    .audience-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: border-color 0.2s;
+    }
+    .audience-item:hover { border-color: rgba(201,168,76,0.3); }
+    .audience-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(201,168,76,0.1);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 24px;
       flex-shrink: 0;
     }
-    .founder-info .f-name {
+    .audience-text h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+    .audience-text p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ── FAQ ── */
+    .faq-list {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .faq-q {
+      padding: 18px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-q:hover { background: var(--card-hover); }
+    .faq-arrow {
+      color: var(--accent);
+      transition: transform 0.2s;
+    }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+    .faq-a {
+      display: none;
+      padding: 0 24px 18px 24px;
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ── Process ── */
+    .process-steps {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .process-step {
+      flex: 1;
+      min-width: 200px;
+      max-width: 280px;
+      text-align: center;
+      position: relative;
+    }
+    .process-step::after {
+      content: '→';
+      position: absolute;
+      right: -20px;
+      top: 24px;
+      font-size: 24px;
+      color: var(--accent);
+    }
+    .process-step:last-child::after { display: none; }
+    @media (max-width: 768px) {
+      .process-step::after { display: none; }
+    }
+    .process-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      color: #0a0a1a;
+      font-size: 20px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .process-title {
       font-size: 16px;
       font-weight: 700;
       color: var(--text);
-      margin-bottom: 4px;
+      margin-bottom: 8px;
     }
-    .founder-info .f-title {
-      font-size: 13px;
-      color: var(--accent);
-      margin-bottom: 6px;
-    }
-    .founder-info .f-desc {
+    .process-desc {
       font-size: 13px;
       color: var(--text-muted);
       line-height: 1.6;
     }
 
-    /* ── Three Core Benefits ── */
-    .benefit-3col {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 14px;
-      margin-bottom: 24px;
+    /* ── CTA ── */
+    .cta-section {
+      background: linear-gradient(135deg, #1a1040 0%, #0d1f3c 50%, #0a2a2a 100%);
+      padding: 80px 24px;
+      text-align: center;
     }
-    .benefit3-card {
+    .cta-section h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    /* ── Testimonials ── */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 768px) {
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+    .testimonial-card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 20px 18px;
+      padding: 24px;
       position: relative;
-      overflow: hidden;
-      transition: border-color 0.2s, transform 0.2s;
     }
-    .benefit3-card:hover {
-      border-color: rgba(201,168,76,0.3);
-      transform: translateY(-2px);
-    }
-    .benefit3-card .num {
+    .testimonial-card::before {
+      content: '"';
       position: absolute;
       top: 12px;
-      right: 14px;
-      font-size: 36px;
-      font-weight: 900;
-      color: rgba(201,168,76,0.06);
+      left: 20px;
+      font-size: 48px;
+      color: var(--accent);
+      opacity: 0.3;
       line-height: 1;
     }
-    .benefit3-card .b-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
+    .testimonial-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .testimonial-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 20px;
-      margin-bottom: 12px;
+      font-size: 16px;
     }
-    .benefit3-card .b-title {
-      font-size: 15px;
+    .testimonial-info h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .testimonial-info p {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* ── Learning Path ── */
+    .learning-steps {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .learning-step {
+      flex: 1;
+      min-width: 200px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      text-align: center;
+      position: relative;
+    }
+    .learning-step::after {
+      content: '→';
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
+      color: var(--accent);
+    }
+    .learning-step:last-child::after { display: none; }
+    @media (max-width: 768px) {
+      .learning-step::after { display: none; }
+      .learning-steps { flex-direction: column; }
+    }
+    .learning-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.1);
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin: 0 auto 16px;
+    }
+    .learning-title {
+      font-size: 16px;
       font-weight: 700;
       color: var(--text);
       margin-bottom: 8px;
     }
-    .benefit3-card .b-list {
-      list-style: none;
-      font-size: 12px;
+    .learning-desc {
+      font-size: 13px;
       color: var(--text-muted);
-      line-height: 2;
+      line-height: 1.6;
     }
-    .benefit3-card .b-list li::before { content: '✓ '; color: var(--accent); }
 
-    .benefit3-a .b-icon { background: rgba(201,168,76,0.15); }
-    .benefit3-b .b-icon { background: rgba(74,222,128,0.1); }
-    .benefit3-c .b-icon { background: rgba(96,165,250,0.1); }
-
-    /* Highlight stat */
-    .stat-row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 24px;
+    /* ── How to Join ── */
+    .join-options {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
     }
-    .stat-chip {
-      flex: 1;
-      min-width: 120px;
-      background: rgba(201,168,76,0.08);
-      border: 1px solid rgba(201,168,76,0.2);
-      border-radius: 10px;
-      padding: 14px 16px;
+    @media (max-width: 640px) {
+      .join-options { grid-template-columns: 1fr; }
+    }
+    .join-option {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
       text-align: center;
+      transition: border-color 0.2s, transform 0.2s;
     }
-    .stat-chip .num {
-      font-size: 24px;
+    .join-option:hover {
+      border-color: rgba(201,168,76,0.4);
+      transform: translateY(-2px);
+    }
+    .join-icon {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+    .join-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .join-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .cta-section p {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+    .cta-price {
+      font-size: 48px;
       font-weight: 800;
       color: var(--accent);
-      line-height: 1;
+      margin-bottom: 8px;
     }
-    .stat-chip .label {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-top: 4px;
+    .cta-price span {
+      font-size: 20px;
+      font-weight: 400;
     }
-
-    /* ── Suitable For ── */
-    .audience-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 24px;
-    }
-    .audience-item {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 14px 16px;
-      font-size: 13px;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .audience-item .a-icon {
-      font-size: 18px;
-      flex-shrink: 0;
-    }
-
-    /* ── Referral Banner ── */
-    .referral-banner {
-      background: linear-gradient(90deg, rgba(201,168,76,0.1), rgba(201,168,76,0.05));
-      border: 1px solid rgba(201,168,76,0.2);
-      border-radius: var(--radius);
-      padding: 20px 24px;
-      margin-bottom: 24px;
-    }
-    .referral-banner .r-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
-    .referral-steps {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .referral-step {
-      flex: 1;
-      min-width: 160px;
-      background: rgba(201,168,76,0.08);
-      border-radius: 8px;
-      padding: 12px 14px;
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-    .referral-step strong { color: var(--text); display: block; margin-bottom: 2px; }
-
-    /* ── Flow Steps ── */
-    .flow-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      margin-top: 4px;
-    }
-    .flow-step {
-      display: flex;
-      gap: 16px;
-      position: relative;
-      padding-bottom: 20px;
-    }
-    .flow-step:last-child { padding-bottom: 0; }
-    .flow-step::before {
-      content: '';
-      position: absolute;
-      left: 15px;
-      top: 32px;
-      bottom: 0;
-      width: 2px;
-      background: var(--border);
-    }
-    .flow-step:last-child::before { display: none; }
-    .flow-num {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: rgba(201,168,76,0.15);
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-      font-weight: 700;
-      flex-shrink: 0;
-      z-index: 1;
-    }
-    .flow-content { flex: 1; padding-top: 4px; }
-    .flow-content .step-title {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 4px;
-    }
-    .flow-content .step-detail {
-      font-size: 13px;
-      color: var(--text-muted);
-      background: var(--card-hover);
-      border-radius: 8px;
-      padding: 10px 14px;
-      border: 1px solid var(--border);
-    }
-    .flow-content .step-detail code {
-      color: var(--accent);
-      background: rgba(201,168,76,0.1);
-      padding: 1px 5px;
-      border-radius: 4px;
-      font-size: 12px;
-    }
-
-    /* ── Objection Cards ── */
-    .obj-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      margin-bottom: 12px;
-      overflow: hidden;
-    }
-    .obj-q {
-      padding: 14px 18px;
-      font-size: 14px;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      cursor: pointer;
-    }
-    .obj-q .tag {
-      font-size: 11px;
-      padding: 2px 8px;
-      border-radius: 4px;
-      background: rgba(248,113,113,0.1);
-      color: var(--red);
-      border: 1px solid rgba(248,113,113,0.2);
-      flex-shrink: 0;
-    }
-    .obj-a {
-      display: none;
-      padding: 0 18px 14px 18px;
-      font-size: 13px;
-      color: var(--text-muted);
-      border-top: 1px solid var(--border);
-      padding-top: 12px;
-    }
-    .obj-card.open .obj-a { display: block; }
-
-    /* ── Highlight box ── */
-    .hl-box {
-      background: rgba(96,165,250,0.08);
-      border: 1px solid rgba(96,165,250,0.2);
-      border-radius: 10px;
-      padding: 14px 18px;
-      font-size: 13px;
-      color: var(--blue);
-      margin-bottom: 16px;
-    }
-
-    /* ── Copy Button ── */
-    .copy-btn {
-      background: rgba(201,168,76,0.1);
-      border: 1px solid rgba(201,168,76,0.25);
-      color: var(--accent);
-      padding: 3px 12px;
-      border-radius: 6px;
-      font-size: 12px;
-      cursor: pointer;
-      transition: all 0.2s;
-      float: right;
-      margin-top: -2px;
-    }
-    .copy-btn:hover { background: rgba(201,168,76,0.2); }
-    .copy-btn.copied { color: var(--green); border-color: rgba(74,222,128,0.3); }
-
-    /* ── FAQ card tweaks ── */
-    .faq-highlight {
-      background: rgba(201,168,76,0.06);
-      border: 1px solid rgba(201,168,76,0.15);
-      border-radius: 10px;
-      padding: 14px 18px;
-      margin-bottom: 16px;
+    .cta-note {
       font-size: 14px;
       color: var(--text-muted);
+      margin-bottom: 32px;
     }
-    .faq-highlight strong { color: var(--accent); }
 
     /* ── Footer ── */
     .footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
       text-align: center;
-      color: var(--text-dim);
-      font-size: 12px;
-      padding: 30px 0 40px;
+    }
+    .footer-logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .footer p {
+      font-size: 13px;
+      color: var(--text-muted);
     }
 
-    /* ── Responsive ── */
-    @media (max-width: 700px) {
-      .benefit-3col { grid-template-columns: 1fr; }
-      .audience-grid { grid-template-columns: 1fr; }
-      .header h1 { font-size: 20px; }
+    /* ── Scroll ── */
+    html { scroll-behavior: smooth; }
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(10,10,26,0.9);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 24px;
+      z-index: 1000;
     }
-    @media (max-width: 500px) {
-      .founder-card { flex-direction: column; }
+    .nav-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
+    .nav-logo {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
   </style>
 </head>
 <body>
 
-<!-- ── Header ── -->
-<div class="header">
-  <div class="header-inner">
-    <div class="header-badge">⭐ 星光会</div>
-    <h1>客服知识库</h1>
-    <p>标准话术 · 入会流程 · 权益说明 · 异议处理</p>
-  </div>
-</div>
-
-<!-- ── Search ── -->
-<div class="search-wrap">
-  <div class="search-box">
-    <span class="icon">🔍</span>
-    <input type="text" id="searchInput" placeholder="输入关键词快速搜索，如：费用、秋刀鱼、24场课…" oninput="filterCards(this.value)">
-  </div>
-</div>
-
-<!-- ── Nav ── -->
-<div class="nav-wrap">
-    <div class="nav-pills">
-    <div class="nav-pill active" onclick="switchModule('home', this)">🏠 首页</div>
-    <div class="nav-pill" onclick="switchModule('benefits', this)">🎁 三大权益</div>
-    <div class="nav-pill" onclick="switchModule('schedule', this)">📅 2026课表</div>
-    <div class="nav-pill" onclick="switchModule('about', this)">🏢 关于我们</div>
-    <div class="nav-pill" onclick="switchModule('audience', this)">👥 适合谁加入</div>
-    <div class="nav-pill" onclick="switchModule('faq', this)">💬 常见问题</div>
-    <div class="nav-pill" onclick="switchModule('onboard', this)">📋 入会流程</div>
-    <div class="nav-pill" onclick="switchModule('objection', this)">🛡️ 异议处理</div>
-  </div>
-</div>
-
-<!-- ── Main ── -->
-<div class="main">
-
-  <!-- ══ HOME ══ -->
-  <div class="module active" id="mod-home">
-
-    <!-- About Hero -->
-    <div class="about-hero">
-      <div class="tagline">年营收过亿的出海创业者<br>都在加入的社群</div>
-      <div class="desc">
-        星光会是由秋刀鱼老师联合创办的出海创业者成长平台，汇聚500+跨境、外贸、制造业精英。
-        15年跨境外贸实战经验，150+位亿级出海创业者深度访谈，助你少踩坑、多赚钱。
-      </div>
-      <div class="price-row">
-        <span class="price">¥1999 / 年</span>
-        <span class="price-old">原价 ¥3999</span>
-        <span class="price-note">限量优惠</span>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-logo">⭐ 星光会</div>
+      <div class="nav-links">
+        <a href="#benefits">三大权益</a>
+        <a href="#schedule">2026课表</a>
+        <a href="#about">关于我们</a>
+        <a href="#audience">适合谁</a>
+        <a href="#faq">常见问题</a>
+        <a href="#join">立即加入</a>
       </div>
     </div>
+  </nav>
 
-    <!-- Founder -->
-    <div class="section-title">创始人</div>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-badge">
+      <span class="hero-stars">⭐ ⭐ ⭐</span>
+      <span>年营收过亿的出海创业者都在加入</span>
+    </div>
+    <h1>星光会</h1>
+    <p class="hero-sub">外贸 & 跨境电商创业者专属成长社群</p>
+    <p class="hero-tagline">连接500+会员 · 150+亿级资源 · 25场/年线下活动</p>
+    <div class="hero-cta">
+      <a href="#join" class="btn-primary">立即加入会员</a>
+      <a href="#benefits" class="btn-secondary">了解更多</a>
+    </div>
+    <div class="hero-price">
+      <span class="price-main">¥1999<span>/年</span></span>
+      <span class="price-old">原价 ¥3999</span>
+      <p class="price-note">平均每天不到 ¥6，25场线下活动全部免费参加</p>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">会员人脉</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">25</div>
+        <div class="stat-label">场/年线下活动</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">200+</div>
+        <div class="stat-label">直播回放</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">150+</div>
+        <div class="stat-label">亿级资源</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">8</div>
+        <div class="stat-label">覆盖城市</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Benefits -->
+  <section class="section" id="benefits">
+    <div class="section-title">
+      <h2>三大核心权益</h2>
+      <p>年营收过亿的出海创业者都在这里<span class="accent">学习、链接、成长</span></p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">🎓</div>
+        <div class="benefit-title">课程自由</div>
+        <div class="benefit-subtitle">全年25场线下课免费听</div>
+        <ul class="benefit-list">
+          <li>两天一夜训练营（高强度实战）</li>
+          <li>行业大咖论坛（热点话题）</li>
+          <li>小范围深度沙龙（人脉链接）</li>
+          <li>走进企业游学（实战观摩）</li>
+          <li>多嘉宾圆桌会（思维碰撞）</li>
+        </ul>
+        <div class="benefit-highlight">
+          <div class="num">¥80</div>
+          <div class="label">平均每场费用 · 会员全免费</div>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🤝</div>
+        <div class="benefit-title">资源链接</div>
+        <div class="benefit-subtitle">500+会员人脉 + 150+亿级资源</div>
+        <ul class="benefit-list">
+          <li>与500+星光会成员链接资源</li>
+          <li>连接秋刀鱼采访的150+位亿级出海创业者</li>
+          <li>跨城市人脉网络（深圳/杭州/广州/义乌等）</li>
+          <li>同频创业者互相学习</li>
+          <li>打破圈层，快速破局</li>
+        </ul>
+        <div class="benefit-highlight">
+          <div class="num">150+</div>
+          <div class="label">亿级出海创业者资源 · 真实连接</div>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">📺</div>
+        <div class="benefit-title">直播回放</div>
+        <div class="benefit-subtitle">200+嘉宾干货 · 上百份资料</div>
+        <ul class="benefit-list">
+          <li>免费观看200+嘉宾干货直播回放</li>
+          <li>涵盖外贸成单、跨境运营、品牌出海等</li>
+          <li>免费查阅上百份电子/视频实战资料</li>
+          <li>免费领取直播间嘉宾赠送资料</li>
+          <li>站在前人肩膀上，效率翻倍</li>
+        </ul>
+        <div class="benefit-highlight">
+          <div class="num">200+</div>
+          <div class="label">直播回放 · 持续更新</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Schedule -->
+  <section class="section" id="schedule" style="background: var(--bg2);">
+    <div class="section-title">
+      <h2>2026年活动课表</h2>
+      <p>覆盖<span class="accent">深圳 · 杭州 · 广州 · 义乌 · 东莞 · 济南 · 宁波 · 佛山</span> 8个城市</p>
+    </div>
+
+    <h3 style="font-size:18px;color:var(--text);margin-bottom:20px">📅 上半年（1-6月）</h3>
+    <table class="schedule-table">
+      <thead>
+        <tr>
+          <th>场次</th>
+          <th>形式</th>
+          <th>主题</th>
+          <th>日期</th>
+          <th>城市</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>第一场</td>
+          <td><span class="tag tag-training">两天一夜</span></td>
+          <td>INS社媒精准获客特训营</td>
+          <td>1月10-11日</td>
+          <td>深圳</td>
+        </tr>
+        <tr>
+          <td>第二场</td>
+          <td><span class="tag tag-training">两天一夜</span></td>
+          <td>领英高效稳定获客特训营</td>
+          <td>3月7-8日</td>
+          <td>深圳</td>
+        </tr>
+        <tr>
+          <td>第三场</td>
+          <td><span class="tag tag-training">两天一夜</span></td>
+          <td>外贸百万销售冠军特训营</td>
+          <td>3月28-29日</td>
+          <td>深圳</td>
+        </tr>
+        <tr>
+          <td>第四场</td>
+          <td><span class="tag tag-forum">一天论坛</span></td>
+          <td>对话出海理想&展会千人论坛</td>
+          <td>3月31日</td>
+          <td>深圳</td>
+        </tr>
+        <tr>
+          <td>第五场</td>
+          <td><span class="tag tag-training">两天一夜</span></td>
+          <td>外贸AI落地实战特训营</td>
+          <td>4月11-12日</td>
+          <td>深圳</td>
+        </tr>
+        <tr>
+          <td>第六场</td>
+          <td><span class="tag tag-training">两天一夜</span></td>
+          <td>Facebook社媒精准投流特训营</td>
+          <td>4月25-26日</td>
+          <td>深圳</td>
+        </tr>
+        <tr>
+          <td>🆕 第七场</td>
+          <td><span class="tag tag-study">游学沙龙</span></td>
+          <td><span class="tag tag-new" style="margin-right:6px">NEW</span>3C头部品牌Remax游学沙龙</td>
+          <td>5月16日</td>
+          <td>深圳</td>
+        </tr>
+        <tr>
+          <td>第八场</td>
+          <td><span class="tag tag-training">两天一夜</span></td>
+          <td>AI+领英训练营×双童游学</td>
+          <td>5月23-24日</td>
+          <td>义乌</td>
+        </tr>
+        <tr>
+          <td>第九场</td>
+          <td><span class="tag tag-study">游学沙龙</span></td>
+          <td><span class="tag tag-new" style="margin-right:6px">NEW</span>企业游学沙龙</td>
+          <td>6月6日</td>
+          <td>深圳</td>
+        </tr>
+        <tr>
+          <td>⭐ 第十场</td>
+          <td><span class="tag tag-gala">大论坛</span></td>
+          <td><span class="tag tag-gala">周年庆</span> 星光会周年庆大论坛</td>
+          <td>6月27日</td>
+          <td>东莞</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-size:18px;color:var(--text);margin:40px 0 20px">📅 下半年（7-12月）</h3>
+    <table class="schedule-table">
+      <thead>
+        <tr>
+          <th>场次</th>
+          <th>形式</th>
+          <th>主题</th>
+          <th>日期</th>
+          <th>城市</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>第十一场</td>
+          <td><span class="tag tag-training">两天一夜</span></td>
+          <td>INS社媒精准获客特训营</td>
+          <td>7月11-12日</td>
+          <td>广州</td>
+        </tr>
+        <tr>
+          <td>第十二场</td>
+          <td><span class="tag tag-training">两天一夜</span></td>
+          <td>领英社媒精准获客特训营</td>
+          <td>7月25-26日</td>
+          <td>宁波</td>
+        </tr>
+        <tr>
+          <td>第十三场</td>
+          <td><span class="tag tag-training">两天一夜</span></td>
+          <td>独立站获客和选品特训营</td>
+          <td>8月15-16日</td>
+          <td>济南</td>
+        </tr>
+        <tr>
+          <td>第十四场</td>
+          <td><span class="tag tag-training">两天一夜</span></td>
+          <td>外贸百万销售冠军特训营</td>
+          <td>8月22-23日</td>
+          <td>杭州</td>
+        </tr>
+        <tr>
+          <td>第十五场</td>
+          <td><span class="tag tag-training">两天一夜</span></td>
+          <td>Facebook社媒精准投流特训营</td>
+          <td>8月29-30日</td>
+          <td>东莞</td>
+        </tr>
+        <tr>
+          <td>第十六场</td>
+          <td><span class="tag tag-training">两天一夜</span></td>
+          <td>Facebook社媒精准投流特训营</td>
+          <td>9月19-20日</td>
+          <td>杭州</td>
+        </tr>
+        <tr>
+          <td>第十七场</td>
+          <td><span class="tag tag-training">两天一夜</span></td>
+          <td>领英社媒精准获客特训营</td>
+          <td>9月25-26日</td>
+          <td>深圳</td>
+        </tr>
+        <tr>
+          <td>第十八场</td>
+          <td><span class="tag tag-training">两天一夜</span></td>
+          <td>外贸团队招育留存特训营</td>
+          <td>10月24-25日</td>
+          <td>深圳</td>
+        </tr>
+        <tr>
+          <td>第十九场</td>
+          <td><span class="tag tag-training">两天一夜</span></td>
+          <td>INS社媒精准获客特训营</td>
+          <td>10月30-31日</td>
+          <td>杭州</td>
+        </tr>
+        <tr>
+          <td>第二十场</td>
+          <td><span class="tag tag-training">两天一夜</span></td>
+          <td>独立站获客和选品特训营</td>
+          <td>11月21-22日</td>
+          <td>佛山</td>
+        </tr>
+        <tr>
+          <td>第二十一场</td>
+          <td><span class="tag tag-training">两天一夜</span></td>
+          <td>AI工具获客和效能提升特训营</td>
+          <td>11月27-28日</td>
+          <td>广州</td>
+        </tr>
+        <tr>
+          <td>第二十二场</td>
+          <td><span class="tag tag-training">两天一夜</span></td>
+          <td>外贸百万销售冠军特训营</td>
+          <td>12月29-30日</td>
+          <td>深圳</td>
+        </tr>
+        <tr>
+          <td>第二十三场</td>
+          <td><span class="tag tag-gala">12h盛典</span></td>
+          <td>出海知识跨年盛典</td>
+          <td>12月31日-1月1日</td>
+          <td>深圳</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);border-radius:12px;padding:24px;margin-top:32px;text-align:center">
+      <h3 style="font-size:18px;color:var(--accent);margin-bottom:12px">非会员单场定价</h3>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+        <div style="background:var(--card);border-radius:8px;padding:16px 24px">
+          <div style="font-size:14px;color:var(--text);margin-bottom:4px">两天一夜训练营</div>
+          <div style="font-size:18px;color:var(--accent);font-weight:700">¥698/人 · ¥1198/双人</div>
+        </div>
+        <div style="background:var(--card);border-radius:8px;padding:16px 24px">
+          <div style="font-size:14px;color:var(--text);margin-bottom:4px">半天沙龙</div>
+          <div style="font-size:18px;color:var(--accent);font-weight:700">¥199/人 · ¥298/双人</div>
+        </div>
+      </div>
+      <p style="font-size:13px;color:var(--text-muted);margin-top:16px">参加2场以上就超过会员年费，25场全免费，性价比极高</p>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="section-title">
+      <h2>关于我们</h2>
+      <p>15年跨境外贸实战经验 · 采访<span class="accent">150+位亿级出海创业者</span></p>
+    </div>
     <div class="founder-card">
-      <div class="founder-avatar">🐟</div>
+      <div class="founder-avatar">🎣</div>
       <div class="founder-info">
-        <div class="f-name">秋刀鱼</div>
-        <div class="f-title">星光会出海社群创始人 · 出海创始人访谈头部IP</div>
-        <div class="f-desc">
-          15年跨境外贸创业及服务经验<br>
-          对话出海理想博主，采访150+位亿级出海创业者<br>
-          专注帮助外贸/跨境从业者破圈成长
-        </div>
+        <h3>秋刀鱼</h3>
+        <div class="founder-title">星光会出海社群创始人 · 出海创始人访谈头部IP</div>
+        <p class="founder-desc">
+          15年跨境外贸创业及服务经验，采访150+位亿级出海创业者。对话出海理想博主，
+          深知外贸人的痛点与需求。致力于打造国内第一大外贸社群，帮助更多出海创业者
+          少踩坑、多赚钱、快速成长。
+        </p>
       </div>
     </div>
-
-    <!-- Three Core Benefits (quick) -->
-    <div class="section-title">三大核心权益速览</div>
-    <div class="benefit-3col">
-      <div class="benefit3-card benefit3-a">
-        <div class="num">01</div>
-        <div class="b-icon">🎓</div>
-        <div class="b-title">课程自由</div>
-        <ul class="b-list">
-          <li>24场线下课免费参加</li>
-          <li>两天一夜+论坛+沙龙</li>
-          <li>覆盖10+城市</li>
-          <li>4K录像回看</li>
-        </ul>
-      </div>
-      <div class="benefit3-card benefit3-b">
-        <div class="num">02</div>
-        <div class="b-icon">🤝</div>
-        <div class="b-title">资源链接</div>
-        <ul class="b-list">
-          <li>500+会员人脉网络</li>
-          <li>秋刀鱼采访150+位亿级</li>
-          <li>出海创业者资源</li>
-          <li>破圈人脉高效对接</li>
-        </ul>
-      </div>
-      <div class="benefit3-card benefit3-c">
-        <div class="num">03</div>
-        <div class="b-icon">📺</div>
-        <div class="b-title">直播回放</div>
-        <ul class="b-list">
-          <li>200个嘉宾干货回放</li>
-          <li>上百份实战资料查阅</li>
-          <li>嘉宾赠送专属资料</li>
-          <li>抄作业式头部经验</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Stats -->
-    <div class="stat-row">
-      <div class="stat-chip">
-        <div class="num">24</div>
-        <div class="label">全年线下活动</div>
-      </div>
-      <div class="stat-chip">
-        <div class="num">200+</div>
-        <div class="label">直播回放视频</div>
-      </div>
-      <div class="stat-chip">
-        <div class="num">500+</div>
-        <div class="label">会员人脉网络</div>
-      </div>
-      <div class="stat-chip">
-        <div class="num">150+</div>
-        <div class="label">亿级出海创业者</div>
-      </div>
-    </div>
-
-    <!-- Price CTA -->
-    <div class="referral-banner">
-      <div class="r-title">💰 超高性价比，平均每场课程只要 ¥83</div>
-      <div class="r-desc" style="font-size:13px;color:var(--text-muted);margin-top:6px">
-        24场线下活动（两天一夜训练营+论坛+沙龙+圆桌会）全部免费参加，线下课程覆盖城市超过10个，无法出席可看4K高清录像回放。
-      </div>
-    </div>
-
-    <!-- Referral -->
-    <div class="referral-banner">
-      <div class="r-title">🎯 邀请好友，双向共赢（无上限）</div>
-      <div class="referral-steps">
-        <div class="referral-step">
-          <strong>邀请 1 位好友加入</strong>
-          您可续费 <strong style="color:var(--accent)">1 个月</strong>
-        </div>
-        <div class="referral-step">
-          <strong>邀请 3 位好友加入</strong>
-          您可续费 <strong style="color:var(--accent)">3 个月</strong>
-        </div>
-        <div class="referral-step">
-          <strong>邀请 N 位好友加入</strong>
-          可叠加，无上限！
-        </div>
-      </div>
-    </div>
-
-    <!-- Quick FAQ -->
-    <div class="section-title">热门问答</div>
-
-    <div class="card q-accent" data-keywords="费用 1999 多少钱 价格 年费">
-      <div class="card-header" onclick="toggleCard(this)">
-        <div class="q-icon">Q</div>
-        <div style="flex:1"><div style="font-size:14px;font-weight:600;color:var(--text)">星光会一年多少钱？</div></div>
-        <div class="arrow">▼</div>
-      </div>
-      <div class="card-body">
-        星光会会员年费为 <strong style="color:var(--accent)">¥1999/年</strong>（原价 ¥3999，限时优惠）。24场线下活动，平均每场只要 ¥83，还包含200+直播回放、500+会员人脉资源。
-      </div>
-    </div>
-
-    <div class="card q-green" data-keywords="如何加入 入会 怎么加入 开通">
-      <div class="card-header" onclick="toggleCard(this)">
-        <div class="q-icon">Q</div>
-        <div style="flex:1"><div style="font-size:14px;font-weight:600;color:var(--text)">我想加入星光会，要怎么操作？</div></div>
-        <div class="arrow">▼</div>
-      </div>
-      <div class="card-body">
-        加入流程：① 确认入会意愿 → ② 付款 ¥1999（微信/支付宝）→ ③ 发送付款截图 → ④ 拉入会员群 → ⑤ 发送欢迎资料包（5分钟内完成）
-      </div>
-    </div>
-
-    <div class="card q-blue" data-keywords="退款 可以退吗 后悔">
-      <div class="card-header" onclick="toggleCard(this)">
-        <div class="q-icon">Q</div>
-        <div style="flex:1"><div style="font-size:14px;font-weight:600;color:var(--text)">缴费后可以退款吗？</div></div>
-        <div class="arrow">▼</div>
-      </div>
-      <div class="card-body">
-        虚拟产品/服务一经付费，暂不支持退款。建议在付费前充分了解权益内容，如有疑问可先咨询了解清楚再决定。
-      </div>
-    </div>
-
-    <div class="card q-purple" data-keywords="秋刀鱼 创始人是谁">
-      <div class="card-header" onclick="toggleCard(this)">
-        <div class="q-icon">Q</div>
-        <div style="flex:1"><div style="font-size:14px;font-weight:600;color:var(--text)">星光会的创始人是谁？</div></div>
-        <div class="arrow">▼</div>
-      </div>
-      <div class="card-body">
-        星光会由秋刀鱼老师联合创办。秋刀鱼老师是：
-        <br>· <strong>星光会出海社群创始人</strong>
-        <br>· <strong>出海创始人访谈头部IP</strong>
-        <br>· <strong>15年跨境外贸创业及服务经验</strong>
-        <br>· 对话出海理想博主，采访150+位亿级出海创业者
-      </div>
-    </div>
-
-    <div class="card q-red" data-keywords="线下课 课程 地点 城市">
-      <div class="card-header" onclick="toggleCard(this)">
-        <div class="q-icon">Q</div>
-        <div style="flex:1"><div style="font-size:14px;font-weight:600;color:var(--text)">线下课程在哪里？每月几场？</div></div>
-        <div class="arrow">▼</div>
-      </div>
-      <div class="card-body">
-        全年24场线下活动，包括两天一夜训练营、论坛、沙龙、圆桌会等，覆盖城市超过10个。具体时间地点提前在会员群公告。如无法出席，团队会录制4K高清视频上传到星光会专属小程序，支持回看。
-      </div>
-    </div>
-
-  </div>
-
-  <!-- ══ BENEFITS ══ -->
-  <div class="module" id="mod-benefits">
-
-    <div class="section-title">三大核心权益</div>
-
-    <div class="stat-row" style="margin-bottom:24px">
-      <div class="stat-chip">
-        <div class="num">24</div>
-        <div class="label">场/年 线下活动</div>
-      </div>
-      <div class="stat-chip">
-        <div class="num">¥83</div>
-        <div class="label">平均每场费用</div>
-      </div>
-      <div class="stat-chip">
-        <div class="num">200+</div>
-        <div class="label">直播回放视频</div>
-      </div>
-      <div class="stat-chip">
-        <div class="num">10+</div>
-        <div class="label">覆盖城市数</div>
-      </div>
-    </div>
-
-    <!-- 权益一 -->
-    <div class="card q-accent" data-keywords="课程自由 24场 线下课 免费 两天一夜 论坛 沙龙 录像 回看">
-      <div class="card-header" onclick="toggleCard(this)">
-        <div class="q-icon">🎓</div>
-        <div style="flex:1">
-          <div style="font-size:15px;font-weight:700;color:var(--text)">权益一：课程自由</div>
-          <div style="font-size:12px;color:var(--text-muted);margin-top:2px">24场线下课免费听，平均每场只要 ¥83</div>
-        </div>
-        <div class="arrow">▼</div>
-      </div>
-      <div class="card-body">
-        <strong style="color:var(--text)">会员免费参加星光会全年24场活动，包括：</strong><br><br>
-        ✅ <strong>两天一夜训练营</strong>（全年每月至少1次，高强度实战课程）<br>
-        ✅ <strong>论坛</strong>（行业大咖分享，聚焦出海热点）<br>
-        ✅ <strong>沙龙</strong>（小范围深度交流，人脉链接）<br>
-        ✅ <strong>圆桌会</strong>（多嘉宾对谈，思维碰撞）<br><br>
-        <strong style="color:var(--text)">覆盖城市：</strong>超过10个城市（深圳、广州、上海、杭州等），具体地点提前在会员群公告。<br><br>
-        <strong style="color:var(--text)">无法出席？</strong>没关系！团队会录制<strong style="color:var(--accent)">高清4K视频</strong>上传到星光会专属小程序，让你<strong>不漏掉任何一个学习和成长机会</strong>。
-      </div>
-    </div>
-
-    <!-- 权益二 -->
-    <div class="card q-green" data-keywords="资源链接 500人 会员人脉 亿级 创业者 秋刀鱼采访">
-      <div class="card-header" onclick="toggleCard(this)">
-        <div class="q-icon">🤝</div>
-        <div style="flex:1">
-          <div style="font-size:15px;font-weight:700;color:var(--text)">权益二：资源链接</div>
-          <div style="font-size:12px;color:var(--text-muted);margin-top:2px">500+会员 + 150+亿级出海创业者资源</div>
-        </div>
-        <div class="arrow">▼</div>
-      </div>
-      <div class="card-body">
-        <strong style="color:var(--text)">在这里，人脉就是生产力：</strong><br><br>
-        ✅ <strong>500+星光会成员</strong>，来自外贸、跨境、制造等出海全产业链，可以互相链接资源、共同学习<br>
-        ✅ <strong>秋刀鱼采访的150+位亿级出海创业者</strong>资源，涵盖各细分领域，可以帮助大家<strong>提升认知、少踩坑、多赚钱</strong><br><br>
-        入群即入圈，无论是找供应商、找渠道、找合伙人，还是了解行业一手信息，这里都能找到。
-      </div>
-    </div>
-
-    <!-- 权益三 -->
-    <div class="card q-blue" data-keywords="直播回放 200个 嘉宾 抄作业 资料 干货">
-      <div class="card-header" onclick="toggleCard(this)">
-        <div class="q-icon">📺</div>
-        <div style="flex:1">
-          <div style="font-size:15px;font-weight:700;color:var(--text)">权益三：直播回放</div>
-          <div style="font-size:12px;color:var(--text-muted);margin-top:2px">抄作业式学习头部经验</div>
-        </div>
-        <div class="arrow">▼</div>
-      </div>
-      <div class="card-body">
-        <strong style="color:var(--text)">不用自己摸索，直接学习头部玩家的实战经验：</strong><br><br>
-        ✅ <strong>免费观看200个嘉宾干货分享直播回放</strong>，涵盖外贸成单、跨境运营、品牌出海等全维度内容<br>
-        ✅ <strong>免费查阅上百份电子、视频等实战干货资料</strong>，持续更新，不是一次性打包<br>
-        ✅ <strong>免费领取直播间嘉宾赠送资料</strong>，白嫖行业一手干货<br><br>
-        适合想多维学习但不想太费时间/金钱的人，站在前人的肩膀上，效率翻倍。
-      </div>
-    </div>
-
-    <!-- Invite -->
-    <div class="section-title" style="margin-top:8px">邀请好友福利（无上限）</div>
-    <div class="referral-banner">
-      <div class="referral-steps">
-        <div class="referral-step">
-          <strong>邀请 1 位好友加入</strong>
-          您可续费 <strong style="color:var(--accent)">1 个月</strong>
-        </div>
-        <div class="referral-step">
-          <strong>邀请 3 位好友加入</strong>
-          您可续费 <strong style="color:var(--accent)">3 个月</strong>
-        </div>
-        <div class="referral-step">
-          <strong>邀请 N 位好友加入</strong>
-          可叠加，无上限！
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- ══ SCHEDULE ══ -->
-  <div class="module" id="mod-schedule">
-
-    <div class="section-title">2026年全年活动课表</div>
-
-    <!-- Price Table -->
-    <div class="referral-banner" style="margin-bottom:20px">
-      <div class="r-title">💰 非会员单场定价</div>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px">
-        <div style="flex:1;min-width:180px;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;padding:12px 14px">
-          <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px">两天一夜训练营</div>
-          <div style="font-size:12px;color:var(--text-muted)">单人 <strong style="color:var(--accent)">¥698</strong> / 双人 <strong style="color:var(--accent)">¥1198</strong></div>
-        </div>
-        <div style="flex:1;min-width:180px;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;padding:12px 14px">
-          <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px">半天沙龙</div>
-          <div style="font-size:12px;color:var(--text-muted)">单人 <strong style="color:var(--accent)">¥199</strong> / 双人 <strong style="color:var(--accent)">¥298</strong></div>
-        </div>
-        <div style="flex:1;min-width:180px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);border-radius:8px;padding:12px 14px">
-          <div style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:4px">星光会会员</div>
-          <div style="font-size:12px;color:var(--text-muted)">全年24场 <strong style="color:var(--green)">全部免费</strong></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Stats -->
-    <div class="stat-row">
-      <div class="stat-chip">
-        <div class="num">24</div>
-        <div class="label">全年活动场次</div>
-      </div>
-      <div class="stat-chip">
-        <div class="num">7</div>
-        <div class="label">覆盖城市</div>
-      </div>
-      <div class="stat-chip">
-        <div class="num">10+</div>
-        <div class="label">课程主题类型</div>
-      </div>
-    </div>
-
-    <!-- City coverage -->
-    <div class="section-title" style="margin-top:20px">🏙️ 城市分布</div>
-    <div class="stat-row" style="margin-top:0">
-      <div class="stat-chip">
-        <div class="num">11</div>
-        <div class="label">深圳</div>
-      </div>
-      <div class="stat-chip">
-        <div class="num">4</div>
-        <div class="label">杭州</div>
-      </div>
-      <div class="stat-chip">
-        <div class="num">3</div>
-        <div class="label">广州</div>
-      </div>
-      <div class="stat-chip">
-        <div class="num">2</div>
-        <div class="label">东莞</div>
-      </div>
-      <div class="stat-chip">
-        <div class="num">2</div>
-        <div class="label">济南</div>
-      </div>
-      <div class="stat-chip">
-        <div class="num">1</div>
-        <div class="label">宁波/佛山</div>
-      </div>
-    </div>
-
-    <!-- 上半年 -->
-    <div class="section-title" style="margin-top:20px">📅 上半年（1-6月）</div>
-
-    <div style="overflow-x:auto">
-      <table style="width:100%;border-collapse:collapse;font-size:13px">
-        <thead>
-          <tr style="background:rgba(201,168,76,0.08)">
-            <th style="text-align:left;padding:8px 12px;color:var(--text-muted);font-weight:600;border-bottom:1px solid var(--border)">场次</th>
-            <th style="text-align:left;padding:8px 12px;color:var(--text-muted);font-weight:600;border-bottom:1px solid var(--border)">形式</th>
-            <th style="text-align:left;padding:8px 12px;color:var(--text-muted);font-weight:600;border-bottom:1px solid var(--border)">主题</th>
-            <th style="text-align:left;padding:8px 12px;color:var(--text-muted);font-weight:600;border-bottom:1px solid var(--border)">日期</th>
-            <th style="text-align:left;padding:8px 12px;color:var(--text-muted);font-weight:600;border-bottom:1px solid var(--border)">城市</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;color:var(--text-muted)">第一场</td><td style="padding:8px 12px"><span style="background:rgba(167,139,250,0.1);color:#a78bfa;padding:1px 6px;border-radius:4px;font-size:12px">两天一夜</span></td><td style="padding:8px 12px;color:var(--text)">INS社媒精准获客特训营</td><td style="padding:8px 12px;color:var(--text-muted)">1月10-11日</td><td style="padding:8px 12px;color:var(--text-muted)">深圳</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;color:var(--text-muted)">第二场</td><td style="padding:8px 12px"><span style="background:rgba(167,139,250,0.1);color:#a78bfa;padding:1px 6px;border-radius:4px;font-size:12px">两天一夜</span></td><td style="padding:8px 12px;color:var(--text)">领英高效稳定获客特训营</td><td style="padding:8px 12px;color:var(--text-muted)">3月7-8日</td><td style="padding:8px 12px;color:var(--text-muted)">深圳</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;color:var(--text-muted)">第三场</td><td style="padding:8px 12px"><span style="background:rgba(167,139,250,0.1);color:#a78bfa;padding:1px 6px;border-radius:4px;font-size:12px">两天一夜</span></td><td style="padding:8px 12px;color:var(--text)">外贸百万销售冠军特训营</td><td style="padding:8px 12px;color:var(--text-muted)">3月28-29日</td><td style="padding:8px 12px;color:var(--text-muted)">深圳</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;color:var(--text-muted)">第四场</td><td style="padding:8px 12px"><span style="background:rgba(96,165,250,0.1);color:#60a5fa;padding:1px 6px;border-radius:4px;font-size:12px">一天论坛</span></td><td style="padding:8px 12px;color:var(--text)">对话出海理想&展会千人论坛</td><td style="padding:8px 12px;color:var(--text-muted)">3月31日</td><td style="padding:8px 12px;color:var(--text-muted)">深圳</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;color:var(--text-muted)">第五场</td><td style="padding:8px 12px"><span style="background:rgba(167,139,250,0.1);color:#a78bfa;padding:1px 6px;border-radius:4px;font-size:12px">两天一夜</span></td><td style="padding:8px 12px;color:var(--text)">外贸AI落地实战特训营</td><td style="padding:8px 12px;color:var(--text-muted)">4月11-12日</td><td style="padding:8px 12px;color:var(--text-muted)">深圳</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;color:var(--text-muted)">第六场</td><td style="padding:8px 12px"><span style="background:rgba(167,139,250,0.1);color:#a78bfa;padding:1px 6px;border-radius:4px;font-size:12px">两天一夜</span></td><td style="padding:8px 12px;color:var(--text)">Facebook社媒精准投流特训营</td><td style="padding:8px 12px;color:var(--text-muted)">4月25-26日</td><td style="padding:8px 12px;color:var(--text-muted)">深圳</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;color:var(--text-muted)">第七场</td><td style="padding:8px 12px"><span style="background:rgba(167,139,250,0.1);color:#a78bfa;padding:1px 6px;border-radius:4px;font-size:12px">两天一夜</span></td><td style="padding:8px 12px;color:var(--text)">INS社媒精准获客特训营</td><td style="padding:8px 12px;color:var(--text-muted)">5月23-24日</td><td style="padding:8px 12px;color:var(--text-muted)">杭州</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;color:var(--text-muted)">第八场</td><td style="padding:8px 12px"><span style="background:rgba(167,139,250,0.1);color:#a78bfa;padding:1px 6px;border-radius:4px;font-size:12px">两天一夜</span></td><td style="padding:8px 12px;color:var(--text)">独立站获客和选品特训营</td><td style="padding:8px 12px;color:var(--text-muted)">5月30-31日</td><td style="padding:8px 12px;color:var(--text-muted)">东莞</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;color:var(--text-muted)">第九场</td><td style="padding:8px 12px"><span style="background:rgba(96,165,250,0.1);color:#60a5fa;padding:1px 6px;border-radius:4px;font-size:12px">10小时论坛</span></td><td style="padding:8px 12px;color:var(--text)">本土出海实战分享（南美/中亚/非洲等）</td><td style="padding:8px 12px;color:var(--text-muted)">6月13日</td><td style="padding:8px 12px;color:var(--text-muted)">深圳</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;color:var(--text-muted)">第十场</td><td style="padding:8px 12px"><span style="background:rgba(167,139,250,0.1);color:#a78bfa;padding:1px 6px;border-radius:4px;font-size:12px">两天一夜</span></td><td style="padding:8px 12px;color:var(--text)">Facebook社媒精准投流特训营</td><td style="padding:8px 12px;color:var(--text-muted)">6月27-28日</td><td style="padding:8px 12px;color:var(--text-muted)">济南</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- 下半年 -->
-    <div class="section-title" style="margin-top:20px">📅 下半年（7-12月）</div>
-
-    <div style="overflow-x:auto">
-      <table style="width:100%;border-collapse:collapse;font-size:13px">
-        <thead>
-          <tr style="background:rgba(201,168,76,0.08)">
-            <th style="text-align:left;padding:8px 12px;color:var(--text-muted);font-weight:600;border-bottom:1px solid var(--border)">场次</th>
-            <th style="text-align:left;padding:8px 12px;color:var(--text-muted);font-weight:600;border-bottom:1px solid var(--border)">形式</th>
-            <th style="text-align:left;padding:8px 12px;color:var(--text-muted);font-weight:600;border-bottom:1px solid var(--border)">主题</th>
-            <th style="text-align:left;padding:8px 12px;color:var(--text-muted);font-weight:600;border-bottom:1px solid var(--border)">日期</th>
-            <th style="text-align:left;padding:8px 12px;color:var(--text-muted);font-weight:600;border-bottom:1px solid var(--border)">城市</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;color:var(--text-muted)">第十一场</td><td style="padding:8px 12px"><span style="background:rgba(251,191,36,0.1);color:#fbbf24;padding:1px 6px;border-radius:4px;font-size:12px">论坛沙龙</span></td><td style="padding:8px 12px;color:var(--text)">对话出海理想2周年庆典</td><td style="padding:8px 12px;color:var(--text-muted)">7月1日</td><td style="padding:8px 12px;color:var(--text-muted)">广州</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;color:var(--text-muted)">第十二场</td><td style="padding:8px 12px"><span style="background:rgba(167,139,250,0.1);color:#a78bfa;padding:1px 6px;border-radius:4px;font-size:12px">两天一夜</span></td><td style="padding:8px 12px;color:var(--text)">INS社媒精准获客特训营</td><td style="padding:8px 12px;color:var(--text-muted)">7月11-12日</td><td style="padding:8px 12px;color:var(--text-muted)">广州</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;color:var(--text-muted)">第十三场</td><td style="padding:8px 12px"><span style="background:rgba(167,139,250,0.1);color:#a78bfa;padding:1px 6px;border-radius:4px;font-size:12px">两天一夜</span></td><td style="padding:8px 12px;color:var(--text)">领英社媒精准获客特训营</td><td style="padding:8px 12px;color:var(--text-muted)">7月25-26日</td><td style="padding:8px 12px;color:var(--text-muted)">宁波</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;color:var(--text-muted)">第十四场</td><td style="padding:8px 12px"><span style="background:rgba(167,139,250,0.1);color:#a78bfa;padding:1px 6px;border-radius:4px;font-size:12px">两天一夜</span></td><td style="padding:8px 12px;color:var(--text)">独立站获客和选品特训营</td><td style="padding:8px 12px;color:var(--text-muted)">8月15-16日</td><td style="padding:8px 12px;color:var(--text-muted)">济南</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;color:var(--text-muted)">第十五场</td><td style="padding:8px 12px"><span style="background:rgba(167,139,250,0.1);color:#a78bfa;padding:1px 6px;border-radius:4px;font-size:12px">两天一夜</span></td><td style="padding:8px 12px;color:var(--text)">外贸百万销售冠军特训营</td><td style="padding:8px 12px;color:var(--text-muted)">8月22-23日</td><td style="padding:8px 12px;color:var(--text-muted)">杭州</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;color:var(--text-muted)">第十六场</td><td style="padding:8px 12px"><span style="background:rgba(167,139,250,0.1);color:#a78bfa;padding:1px 6px;border-radius:4px;font-size:12px">两天一夜</span></td><td style="padding:8px 12px;color:var(--text)">Facebook社媒精准投流特训营</td><td style="padding:8px 12px;color:var(--text-muted)">8月29-30日</td><td style="padding:8px 12px;color:var(--text-muted)">东莞</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;color:var(--text-muted)">第十七场</td><td style="padding:8px 12px"><span style="background:rgba(167,139,250,0.1);color:#a78bfa;padding:1px 6px;border-radius:4px;font-size:12px">两天一夜</span></td><td style="padding:8px 12px;color:var(--text)">Facebook社媒精准投流特训营</td><td style="padding:8px 12px;color:var(--text-muted)">9月19-20日</td><td style="padding:8px 12px;color:var(--text-muted)">杭州</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;color:var(--text-muted)">第十八场</td><td style="padding:8px 12px"><span style="background:rgba(167,139,250,0.1);color:#a78bfa;padding:1px 6px;border-radius:4px;font-size:12px">两天一夜</span></td><td style="padding:8px 12px;color:var(--text)">领英社媒精准获客特训营</td><td style="padding:8px 12px;color:var(--text-muted)">9月25-26日</td><td style="padding:8px 12px;color:var(--text-muted)">深圳</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;color:var(--text-muted)">第十九场</td><td style="padding:8px 12px"><span style="background:rgba(167,139,250,0.1);color:#a78bfa;padding:1px 6px;border-radius:4px;font-size:12px">两天一夜</span></td><td style="padding:8px 12px;color:var(--text)">外贸团队招育留存特训营</td><td style="padding:8px 12px;color:var(--text-muted)">10月24-25日</td><td style="padding:8px 12px;color:var(--text-muted)">深圳</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;color:var(--text-muted)">第二十场</td><td style="padding:8px 12px"><span style="background:rgba(167,139,250,0.1);color:#a78bfa;padding:1px 6px;border-radius:4px;font-size:12px">两天一夜</span></td><td style="padding:8px 12px;color:var(--text)">INS社媒精准获客特训营</td><td style="padding:8px 12px;color:var(--text-muted)">10月30-31日</td><td style="padding:8px 12px;color:var(--text-muted)">杭州</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;color:var(--text-muted)">第二十一场</td><td style="padding:8px 12px"><span style="background:rgba(167,139,250,0.1);color:#a78bfa;padding:1px 6px;border-radius:4px;font-size:12px">两天一夜</span></td><td style="padding:8px 12px;color:var(--text)">独立站获客和选品特训营</td><td style="padding:8px 12px;color:var(--text-muted)">11月21-22日</td><td style="padding:8px 12px;color:var(--text-muted)">佛山</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;color:var(--text-muted)">第二十二场</td><td style="padding:8px 12px"><span style="background:rgba(167,139,250,0.1);color:#a78bfa;padding:1px 6px;border-radius:4px;font-size:12px">两天一夜</span></td><td style="padding:8px 12px;color:var(--text)">AI工具获客和效能提升特训营</td><td style="padding:8px 12px;color:var(--text-muted)">11月27-28日</td><td style="padding:8px 12px;color:var(--text-muted)">广州</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;color:var(--text-muted)">第二十三场</td><td style="padding:8px 12px"><span style="background:rgba(167,139,250,0.1);color:#a78bfa;padding:1px 6px;border-radius:4px;font-size:12px">两天一夜</span></td><td style="padding:8px 12px;color:var(--text)">外贸百万销售冠军特训营</td><td style="padding:8px 12px;color:var(--text-muted)">12月29-30日</td><td style="padding:8px 12px;color:var(--text-muted)">深圳</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;color:var(--text-muted)">第二十四场</td><td style="padding:8px 12px"><span style="background:rgba(74,222,128,0.1);color:#4ade80;padding:1px 6px;border-radius:4px;font-size:12px">12h盛典</span></td><td style="padding:8px 12px;color:var(--text)">出海知识跨年盛典</td><td style="padding:8px 12px;color:var(--text-muted)">12月31日-1月1日</td><td style="padding:8px 12px;color:var(--text-muted)">深圳</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- FAQ -->
-    <div class="section-title" style="margin-top:24px">💬 常见问题</div>
-
-    <div class="card q-blue" data-keywords="有哪些课 具体内容 INS 领英 Facebook">
-      <div class="card-header" onclick="toggleCard(this)">
-        <div class="q-icon">Q</div>
-        <div style="flex:1"><div style="font-size:14px;font-weight:600;color:var(--text)">2026年有哪些课程主题？</div></div>
-        <div class="arrow">▼</div>
-      </div>
-      <div class="card-body">
-        全年24场涵盖多个热门主题：<br><br>
-        · <strong>INS社媒精准获客特训营</strong>（4场）<br>
-        · <strong>领英高效稳定获客特训营</strong>（2场）<br>
-        · <strong>Facebook社媒精准投流特训营</strong>（4场）<br>
-        · <strong>外贸百万销售冠军特训营</strong>（3场）<br>
-        · <strong>独立站获客和选品特训营</strong>（3场）<br>
-        · <strong>外贸AI落地实战特训营</strong>（1场）<br>
-        · <strong>AI工具获客和效能提升特训营</strong>（1场）<br>
-        · <strong>外贸团队招育留存特训营</strong>（1场）<br>
-        · <strong>论坛/盛典</strong>（对话出海理想千人论坛、2周年庆典、跨年盛典等，4场）
-      </div>
-    </div>
-
-    <div class="card q-green" data-keywords="城市 深圳 广州 杭州 有哪些城市">
-      <div class="card-header" onclick="toggleCard(this)">
-        <div class="q-icon">Q</div>
-        <div style="flex:1"><div style="font-size:14px;font-weight:600;color:var(--text)">我的城市有课吗？</div></div>
-        <div class="arrow">▼</div>
-      </div>
-      <div class="card-body">
-        2026年覆盖7个城市：<br><br>
-        · <strong>深圳</strong>（11场，最密集）<br>
-        · <strong>杭州</strong>（4场）<br>
-        · <strong>广州</strong>（3场）<br>
-        · <strong>东莞</strong>（2场）<br>
-        · <strong>济南</strong>（2场）<br>
-        · <strong>宁波</strong>（1场）<br>
-        · <strong>佛山</strong>（1场）<br><br>
-        具体每场排期我这边都有，可以发给您参考。
-      </div>
-    </div>
-
-    <div class="card q-red" data-keywords="单买 非会员 价格 698 1198">
-      <div class="card-header" onclick="toggleCard(this)">
-        <div class="q-icon">Q</div>
-        <div style="flex:1"><div style="font-size:14px;font-weight:600;color:var(--text)">我不是会员，可以单独报名单场吗？</div></div>
-        <div class="arrow">▼</div>
-      </div>
-      <div class="card-body">
-        可以的！非会员单场定价如下：<br><br>
-        · <strong>两天一夜训练营</strong>：单人 ¥698 / 双人 ¥1198<br>
-        · <strong>半天沙龙</strong>：单人 ¥199 / 双人 ¥298<br><br>
-        不过如果您打算参加2场以上，加入会员年费 ¥1999，全年报读24场全部免费，平均每场只要 ¥83，性价比更高。
-      </div>
-    </div>
-
-  </div>
-
-  <!-- ══ ABOUT ══ -->
-  <div class="module" id="mod-about">
-
-    <div class="section-title">关于我们</div>
-
-    <div class="about-hero">
-      <div class="tagline">年营收过亿的出海创业者<br>都在加入的社群</div>
-      <div class="desc">
-        星光会是一个专为出海创业者、外贸人打造的付费成长社群。不是单纯的信息群，而是涵盖课程、人脉、资源对接的出海生态圈。
-        无论你是刚入行的新人，还是营收遇到瓶颈的老兵，星光会都能帮你找到破圈路径。
-      </div>
-    </div>
-
-    <!-- Founders -->
-    <div class="section-title">创始人团队</div>
-
-    <div class="founder-card" style="margin-bottom:14px">
-      <div class="founder-avatar">🐟</div>
-      <div class="founder-info">
-        <div class="f-name">秋刀鱼</div>
-        <div class="f-title">星光会出海社群创始人 · 出海创始人访谈头部IP</div>
-        <div class="f-desc">
-          · <strong>15年跨境外贸创业及服务经验</strong><br>
-          · 对话出海理想博主<br>
-          · 出海创始人访谈头部IP<br>
-          · 累计采访150+位亿级出海创业者
-        </div>
-      </div>
-    </div>
-
     <div class="founder-card">
-      <div class="founder-avatar" style="background: linear-gradient(135deg, #4a3080, #1a1040);">⭐</div>
+      <div class="founder-avatar">🌟</div>
       <div class="founder-info">
-        <div class="f-name">Nina</div>
-        <div class="f-title">星光会创始人之一 · 社群运营负责人</div>
-        <div class="f-desc">
-          · 负责星光会日常运营与会员服务<br>
-          · 销售客服、入会办理、社群管理<br>
-          · 线下活动方案设计与执行
-        </div>
+        <h3>Nina</h3>
+        <div class="founder-title">星光会创始人之一 · 社群运营负责人</div>
+        <p class="founder-desc">
+          负责星光会社群运营与会员服务，连接每一位星光会成员。从入会到成长，
+          全程陪伴式服务，让每一位会员都能在星光会找到价值、链接资源、实现突破。
+        </p>
       </div>
     </div>
+  </section>
 
-    <!-- What we offer -->
-    <div class="section-title" style="margin-top:8px">星光会能为你做什么</div>
-
-    <div class="card q-accent" data-keywords="社群是什么">
-      <div class="card-header" onclick="toggleCard(this)">
-        <div class="q-icon">🏆</div>
-        <div style="flex:1"><div style="font-size:14px;font-weight:600;color:var(--text)">星光会和普通的社群/培训有什么区别？</div></div>
-        <div class="arrow">▼</div>
-      </div>
-      <div class="card-body">
-        星光会不是一次性课程，也不是单纯的信息分享群。我们提供的是：<br><br>
-        ✅ <strong>持续的课程体系</strong>：全年24场线下活动，线上200+直播回放，不用担心学完就没了<br>
-        ✅ <strong>真实的人脉网络</strong>：500+会员 + 秋刀鱼150+位亿级创业者资源，真实连接<br>
-        ✅ <strong>实战的答疑服务</strong>：不是录课丢给你，而是真的有人在帮你解决问题<br>
-        ✅ <strong>超高的性价比</strong>：平均每场课程只要83元，还有人脉资源的无形价值
-      </div>
+  <!-- Audience -->
+  <section class="section" id="audience" style="background: var(--bg2);">
+    <div class="section-title">
+      <h2>适合谁加入</h2>
+      <p>无论你是创业老兵还是新手<span class="accent">都能在这里找到价值</span></p>
     </div>
-
-    <div class="card q-purple" data-keywords="出海 跨境 外贸">
-      <div class="card-header" onclick="toggleCard(this)">
-        <div class="q-icon">🌏</div>
-        <div style="flex:1"><div style="font-size:14px;font-weight:600;color:var(--text)">星光会主要面向哪些出海业务类型？</div></div>
-        <div class="arrow">▼</div>
-      </div>
-      <div class="card-body">
-        星光会覆盖出海全产业链：<br>
-        · 跨境电商（亚马逊、Shopify、独立站等）<br>
-        · 外贸进出口（B2B、B2C）<br>
-        · 制造业出海（工贸一体）<br>
-        · 品牌出海（DTC品牌、出海SaaS等）<br>
-        · 跨境服务（物流、支付、营销等）
-      </div>
-    </div>
-
-  </div>
-
-  <!-- ══ AUDIENCE ══ -->
-  <div class="module" id="mod-audience">
-
-    <div class="section-title">适合谁加入</div>
-
     <div class="audience-grid">
-
       <div class="audience-item">
-        <span class="a-icon">🚢</span>
-        <span>外贸 / 跨境电商创业者</span>
-      </div>
-      <div class="audience-item">
-        <span class="a-icon">🏭</span>
-        <span>制造业老板（想出海）</span>
-      </div>
-      <div class="audience-item">
-        <span class="a-icon">🌱</span>
-        <span>想低成本试水海外市场</span>
-      </div>
-      <div class="audience-item">
-        <span class="a-icon">🔗</span>
-        <span>急需破圈人脉和资源</span>
-      </div>
-      <div class="audience-item">
-        <span class="a-icon">📚</span>
-        <span>想多维学习提升认知</span>
-      </div>
-      <div class="audience-item">
-        <span class="a-icon">💰</span>
-        <span>追求高性价比成长路径</span>
-      </div>
-
-    </div>
-
-    <div class="section-title" style="margin-top:8px">场景举例</div>
-
-    <div class="card q-accent">
-      <div class="card-header" onclick="toggleCard(this)">
-        <div class="q-icon">💬</div>
-        <div style="flex:1"><div style="font-size:14px;font-weight:600;color:var(--text)">「我是刚入行的外贸新人，不知道从哪里开始」</div></div>
-        <div class="arrow">▼</div>
-      </div>
-      <div class="card-body">
-        星光会的200+直播回放里有外贸小白系统课，从零开始教你开发客户、跟进订单、规避风险。加上1对1答疑和500+会员的人脉，刚入行也能快速找到方向。
-      </div>
-    </div>
-
-    <div class="card q-green">
-      <div class="card-header" onclick="toggleCard(this)">
-        <div class="q-icon">💬</div>
-        <div style="flex:1"><div style="font-size:14px;font-weight:600;color:var(--text)">「工厂老板想开拓海外渠道，但没有方向」</div></div>
-        <div class="arrow">▼</div>
-      </div>
-      <div class="card-body">
-        秋刀鱼采访的150+位亿级出海创业者里，有大量从制造业成功转型出海的案例。线下论坛和沙龙里也能直接认识做跨境的会员，帮你快速打通出海路径。
-      </div>
-    </div>
-
-    <div class="card q-blue">
-      <div class="card-header" onclick="toggleCard(this)">
-        <div class="q-icon">💬</div>
-        <div style="flex:1"><div style="font-size:14px;font-weight:600;color:var(--text)">「做了几年外贸，业绩遇到瓶颈，想破圈」</div></div>
-        <div class="arrow">▼</div>
-      </div>
-      <div class="card-body">
-        这里汇聚了各阶段的出海创业者，500+会员本身就是高质量人脉圈。秋刀鱼的访谈资源能帮你看到更大的市场可能性，24场线下活动是破圈连接的好机会。
-      </div>
-    </div>
-
-  </div>
-
-  <!-- ══ FAQ ══ -->
-  <div class="module" id="mod-faq">
-
-    <div class="section-title">常见问题 Q&A</div>
-
-    <div class="faq-highlight">
-      💡 会员年费 <strong>¥1999/年</strong>（原价 ¥3999），包含24场线下活动 + 200+直播回放 + 500+会员人脉 + 秋刀鱼150+位亿级资源
-    </div>
-
-    <div class="card q-accent" data-keywords="1999贵 值不值 值得 性价比 平均每场83">
-      <div class="card-header" onclick="toggleCard(this)">
-        <div class="q-icon">Q</div>
-        <div style="flex:1"><div style="font-size:14px;font-weight:600;color:var(--text)">¥1999一年贵吗？值不值？</div></div>
-        <div class="arrow">▼</div>
-      </div>
-      <div class="card-body">
-        算一笔账就知道：<br><br>
-        · 全年<strong>24场线下活动</strong>（两天一夜训练营+论坛+沙龙+圆桌会），覆盖10+城市，平均每场只要 <strong style="color:var(--accent)">¥83</strong><br>
-        · <strong>200+直播回放</strong>，相当于200节行业实战课<br>
-        · <strong>500+会员人脉</strong> + 秋刀鱼<strong>150+位亿级创业者</strong>资源链接<br><br>
-        ¥1999换来一整年的课程、人脉、资源加速成长，性价比极高。
-      </div>
-    </div>
-
-    <div class="card q-green" data-keywords="免费课 24场 哪些内容">
-      <div class="card-header" onclick="toggleCard(this)">
-        <div class="q-icon">Q</div>
-        <div style="flex:1"><div style="font-size:14px;font-weight:600;color:var(--text)">24场线下活动具体有哪些？每次内容一样吗？</div></div>
-        <div class="arrow">▼</div>
-      </div>
-      <div class="card-body">
-        24场活动形式多样：<br>
-        · <strong>两天一夜训练营</strong>：高强度实战课程，手把手教学<br>
-        · <strong>论坛</strong>：行业大咖分享，聚焦出海热点话题<br>
-        · <strong>沙龙</strong>：小范围深度交流，便于人脉链接<br>
-        · <strong>圆桌会</strong>：多嘉宾对谈，思维碰撞<br><br>
-        每次主题根据行业动态和会员需求定制，每期都不同，保证新鲜度和实战性。
-      </div>
-    </div>
-
-    <div class="card q-blue" data-keywords="录像 回看 小程序 4K">
-      <div class="card-header" onclick="toggleCard(this)">
-        <div class="q-icon">Q</div>
-        <div style="flex:1"><div style="font-size:14px;font-weight:600;color:var(--text)">如果我所在地没有场次/无法出席，课程还能看吗？</div></div>
-        <div class="arrow">▼</div>
-      </div>
-      <div class="card-body">
-        当然可以！每次线下活动团队都会录制<strong style="color:var(--accent)">高清4K视频</strong>，上传到星光会专属小程序，<strong>随时随地回看，不漏掉任何一个学习机会</strong>。直播回放也是同理，错过的直播可以随时补看。
-      </div>
-    </div>
-
-    <div class="card q-purple" data-keywords="人脉 链接 500人 资源">
-      <div class="card-header" onclick="toggleCard(this)">
-        <div class="q-icon">Q</div>
-        <div style="flex:1"><div style="font-size:14px;font-weight:600;color:var(--text)">会员人脉具体怎么用？秋刀鱼的资源怎么链接？</div></div>
-        <div class="arrow">▼</div>
-      </div>
-      <div class="card-body">
-        入群即入圈：<br>
-        · <strong>500+星光会会员</strong>来自外贸、跨境、制造全产业链，群内日常交流、资源互通<br>
-        · <strong>秋刀鱼采访的150+位亿级出海创业者</strong>，我们定期邀请部分嘉宾来社群分享或开设专场答疑<br>
-        · 线下活动的论坛和沙龙是最高效的人脉链接场景，面对面深度交流<br><br>
-        人脉不是自动来的，需要主动参与。我们的会员里有大量创业者，主动连接往往有意外收获。
-      </div>
-    </div>
-
-    <div class="card q-red" data-keywords="付款方式 微信 支付宝">
-      <div class="card-header" onclick="toggleCard(this)">
-        <div class="q-icon">Q</div>
-        <div style="flex:1"><div style="font-size:14px;font-weight:600;color:var(--text)">怎么付款？支持哪些方式？</div></div>
-        <div class="arrow">▼</div>
-      </div>
-      <div class="card-body">
-        支持微信转账、支付宝。付款后请截图发给我们，确认收款后立刻拉入会员群，并发送权益资料包。
-      </div>
-    </div>
-
-    <div class="card q-orange" data-keywords="企业 团队 团购">
-      <div class="card-header" onclick="toggleCard(this)">
-        <div class="q-icon">Q</div>
-        <div style="flex:1"><div style="font-size:14px;font-weight:600;color:var(--text)">可以帮公司团队一起买吗？</div></div>
-        <div class="arrow">▼</div>
-      </div>
-      <div class="card-body">
-        可以的！以个人名义付费即可，每位成员独立享有会员权益。若有企业团购需求，可以单独联系运营负责人协商。
-      </div>
-    </div>
-
-  </div>
-
-  <!-- ══ ONBOARD ══ -->
-  <div class="module" id="mod-onboard">
-
-    <div class="section-title">新会员入会流程</div>
-
-    <div class="flow-steps">
-
-      <div class="flow-step">
-        <div class="flow-num">1</div>
-        <div class="flow-content">
-          <div class="step-title">客户确认入会意向</div>
-          <div class="step-detail">
-            客户表达入会意愿后，确认：姓名、联系方式、入会时间需求。<br>
-            <strong>标准话术：</strong>「好的，我现在帮您办理入会，请确认一下您的微信名/称呼？」
-          </div>
+        <div class="audience-icon">🚢</div>
+        <div class="audience-text">
+          <h4>外贸 / 跨境电商创业者</h4>
+          <p>想出海但不知道从哪里开始，需要系统学习和人脉资源</p>
         </div>
       </div>
-
-      <div class="flow-step">
-        <div class="flow-num">2</div>
-        <div class="flow-content">
-          <div class="step-title">发送付款信息，收取入会费 ¥1999</div>
-          <div class="step-detail">
-            发送收款二维码或账户信息（微信号/支付宝）。确认收款后，请客户发送<strong>付款截图</strong>作为凭证。
-          </div>
+      <div class="audience-item">
+        <div class="audience-icon">🏭</div>
+        <div class="audience-text">
+          <h4>制造业老板</h4>
+          <p>想出海但没有外贸经验，需要破圈链接和实战指导</p>
         </div>
       </div>
-
-      <div class="flow-step">
-        <div class="flow-num">3</div>
-        <div class="flow-content">
-          <div class="step-title">记录入会信息</div>
-          <div class="step-detail">
-            在腾讯文档会员表格中录入：<br>
-            <code>日期</code> <code>姓名/昵称</code> <code>联系方式</code> <code>付款金额 ¥1999</code> <code>到期日期（入会日期+1年）</code>
-          </div>
+      <div class="audience-item">
+        <div class="audience-icon">💡</div>
+        <div class="audience-text">
+          <h4>想低成本试水海外市场</h4>
+          <p>想了解出海全貌，找到适合自己的出海路径</p>
         </div>
       </div>
-
-      <div class="flow-step">
-        <div class="flow-num">4</div>
-        <div class="flow-content">
-          <div class="step-title">拉入会员群</div>
-          <div class="step-detail">
-            将新会员微信拉入「🌟星光会-天王星群🪐」。<br>
-            如有专属课程群，同步拉入对应群组。
-          </div>
+      <div class="audience-item">
+        <div class="audience-icon">🔗</div>
+        <div class="audience-text">
+          <h4>急需破圈人脉和资源</h4>
+          <p>想链接同频创业者，拓展高质量人脉圈层</p>
         </div>
       </div>
-
-      <div class="flow-step">
-        <div class="flow-num">5</div>
-        <div class="flow-content">
-          <div class="step-title">发送欢迎资料包</div>
-          <div class="step-detail">
-            在微信发送欢迎语 + 权益资料包（小程序码、课程合集链接等）。<br>
-            <strong>建议发送时间：</strong>入会后 5 分钟内完成，提升用户体验。
-          </div>
+      <div class="audience-item">
+        <div class="audience-icon">📚</div>
+        <div class="audience-text">
+          <h4>想多维学习但不想太费钱</h4>
+          <p>追求高性价比的学习资源，站在前人肩膀上成长</p>
         </div>
       </div>
-
-    </div>
-
-    <div class="section-title" style="margin-top:28px">欢迎语模板</div>
-    <div class="card q-accent">
-      <div class="card-header" onclick="toggleCard(this)">
-        <div class="q-icon">✉</div>
-        <div style="flex:1"><div style="font-size:14px;font-weight:600;color:var(--text)">点击查看 / 复制欢迎语</div></div>
-        <div class="arrow">▼</div>
-      </div>
-      <div class="card-body" style="padding-left:60px">
-        <span class="copy-btn" onclick="copyText(this, '欢迎语', event)">复制</span>
-        <div id="welcome-msg" style="font-size:13px;color:var(--text-muted);line-height:1.9">
-          🎉 恭喜您正式成为星光会会员！<br><br>
-          欢迎您加入星光会大家庭！年营收过亿的出海创业者都在这里 🌟<br><br>
-          【您的三大核心权益】<br>
-          ✅ 课程自由：全年24场线下课免费听（两天一夜+论坛+沙龙+圆桌会），平均每场只要¥83，覆盖10+城市<br>
-          ✅ 资源链接：与500+星光会成员链接资源，连接秋刀鱼采访的150+位亿级出海创业者<br>
-          ✅ 直播回放：免费观看200+嘉宾干货直播回放，查阅上百份实战资料，领取嘉宾赠送资料<br><br>
-          【温馨提示】<br>
-          📍 您的会员有效期至：_____（请填写日期）<br>
-          📺 课程回放请到星光会专属小程序观看<br>
-          💬 有任何问题随时@我们，1对1答疑随时为您开放<br><br>
-          让我们一起出海破圈，多赚钱！🚀
+      <div class="audience-item">
+        <div class="audience-icon">💼</div>
+        <div class="audience-text">
+          <h4>外贸业务员 / 打工族</h4>
+          <p>想提升成单技巧和运营实战，获得更多发展机会</p>
         </div>
       </div>
     </div>
+  </section>
 
-  </div>
-
-  <!-- ══ OBJECTION ══ -->
-  <div class="module" id="mod-objection">
-
-    <div class="section-title">拒绝 / 异议处理话术</div>
-
-    <div class="obj-card">
-      <div class="obj-q">
-        <span class="tag">价格太贵</span>
-        「1999太贵了，外面免费的资料一大堆」
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="section-title">
+      <h2>常见问题</h2>
+      <p>你关心的都在这里<span class="accent">有问必答</span></p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>¥1999一年贵吗？值不值？</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          算一笔账就知道：全年25场线下活动，平均每场只要¥80；200+直播回放，相当于200节行业实战课；500+会员人脉 + 秋刀鱼150+位亿级创业者资源链接。¥1999换来一整年的课程、人脉、资源加速成长，性价比极高。
+        </div>
       </div>
-      <div class="obj-a">
-        <strong style="color:var(--text)">参考回复：</strong><br><br>
-        非常理解您对价格的考量 😊<br><br>
-        但说实话，外面免费的信息要么零散不系统、要么已经过时了。星光会不只是资料，更是一整套成长体系：<br>
-        · 全年<strong>24场线下活动</strong>，平均每场只要 <strong style="color:var(--accent)">¥83</strong><br>
-        · <strong>200+直播回放</strong>，相当于200节实战课<br>
-        · <strong>500+会员人脉</strong> + 秋刀鱼采访的<strong>150+位亿级创业者</strong>资源<br><br>
-        ¥1999换来一整年的课程、人脉、资源加速成长，平均每天不到¥6，这性价比真的很高。
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>我没时间参加线下活动怎么办？</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          没关系！团队会录制高清4K视频上传到星光会专属小程序，支持回看。不要求实时参加，录播同样干货满满。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>我不是创业者，适合加入吗？</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          当然适合！打工族、外贸业务员同样适合，有成单技巧和运营实战分享。只要你想学习、想成长、想链接人脉，星光会都欢迎你。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>加入后没有效果怎么办？</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          秋刀鱼15年实战经验 + 150+亿级资源 + 线下高强度面对面学习，这是你在其他地方很难获得的资源。而且星光会不是一次性课程，是持续成长的社群，有问题随时@我们。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>怎么加入星光会？</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          扫码联系微信客服 → 付款¥1999 → 开通小程序会员账号 → 邀请进入会员群 → 登记信息，开始你的星光之旅！
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>邀请好友有什么福利？</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          邀请1位好友加入 → 续费1个月；邀请3位好友加入 → 续费3个月。可叠加，无上限！一边学习一边回血。
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="obj-card">
-      <div class="obj-q">
-        <span class="tag">再考虑一下</span>
-        「我再考虑考虑，过段时间再说」
+  <!-- Process -->
+  <section class="section" id="join" style="background: var(--bg2);">
+    <div class="section-title">
+      <h2>入会流程</h2>
+      <p>简单3步，开启你的<span class="accent">星光之旅</span></p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-num">1</div>
+        <div class="process-title">扫码咨询</div>
+        <div class="process-desc">扫描下方二维码，添加客服微信，了解更多详情</div>
       </div>
-      <div class="obj-a">
-        <strong style="color:var(--text)">参考回复：</strong><br><br>
-        没问题，理解您做决定需要时间 😊<br><br>
-        想提醒您的是，原价¥3999的优惠价随时可能调整。秋刀鱼采访的亿级资源库每月还在增加，早加入能早链接这些资源。另外邀请1位好友加入可以续费1个月，邀请3位可以续费3个月，相当于也在帮自己省钱 ✨<br><br>
-        考虑好了随时来找我，不着急 🙂
+      <div class="process-step">
+        <div class="process-num">2</div>
+        <div class="process-title">付款入会</div>
+        <div class="process-desc">转账¥1999，确认到账后立即开通会员权益</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">3</div>
+        <div class="process-title">开通账号</div>
+        <div class="process-desc">注册小程序、进入会员群，开启学习和链接之旅</div>
       </div>
     </div>
-
-    <div class="obj-card">
-      <div class="obj-q">
-        <span class="tag">效果存疑</span>
-        「加入后真的有用吗？怕交了钱没效果」
-      </div>
-      <div class="obj-a">
-        <strong style="color:var(--text)">参考回复：</strong><br><br>
-        完全理解您的顾虑 😊<br><br>
-        星光会的会员里，有大量外贸老兵和跨境创业者，他们选择这里是因为：<br>
-        ✅ 有秋刀鱼15年实战经验和150+位亿级创业者资源背书，内容有深度<br>
-        ✅ 24场线下活动是面对面高强度交流，现场解决实际问题<br>
-        ✅ 500+会员本身就是一个高质量人脉圈，人脉本身就是资源<br>
-        ✅ 200+直播回放随时可看，不用担心时间冲突<br><br>
-        您可以先说出您目前最想解决的问题是什么，我帮您看看星光会哪部分最适合您 🙂
-      </div>
+    <div style="text-align:center;margin-top:48px">
+      <img src="星光会会员二维码.jpg" alt="扫码加入" style="width:200px;border-radius:12px;border:2px solid var(--border)">
+      <p style="font-size:14px;color:var(--text-muted);margin-top:12px">👆 扫码添加客服微信 👆</p>
     </div>
+  </section>
 
-    <div class="obj-card">
-      <div class="obj-q">
-        <span class="tag">时间不够</span>
-        「我工作太忙了，怕没时间参加」
-      </div>
-      <div class="obj-a">
-        <strong style="color:var(--text)">参考回复：</strong><br><br>
-        哈哈，做外贸/跨境的哪有不忙的 🙂<br><br>
-        好消息是，星光会的设计就是为忙碌的人准备的：<br>
-        · 线下活动有<strong>4K高清回放</strong>，在星光会专属小程序随时看，不要求实时参加<br>
-        · 直播可以<strong>看回放</strong>，利用碎片时间即可<br>
-        · 24场活动每月2场，不方便时可以下期再去<br><br>
-        很多会员都是利用业余时间慢慢学的，<strong>有时候花一点时间学方法，比埋头苦干效率高得多</strong> 💪
-      </div>
-    </div>
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>年营收过亿的出海创业者都在这里</h2>
+    <p>你还在等什么？早加入，早链接，早成长</p>
+    <div class="cta-price">¥1999<span>/年</span></div>
+    <p class="cta-note">原价 ¥3999 · 限时优惠 · 25场线下活动全部免费</p>
+    <a href="#join" class="btn-primary">立即加入星光会</a>
+  </section>
 
-    <div class="obj-card">
-      <div class="obj-q">
-        <span class="tag">和朋友商量</span>
-        「我要和家人/合伙人商量一下」
-      </div>
-      <div class="obj-a">
-        <strong style="color:var(--text)">参考回复：</strong><br><br>
-        好的，做重要决定前商量是对的 🙂<br><br>
-        我可以简单帮您介绍权益：¥1999一年，包含24场线下活动（平均每场¥83）、200+直播回放、500+会员人脉，还有秋刀鱼的亿级创业者资源。<br><br>
-        这个价格在外贸/跨境培训圈子里其实非常有竞争力。商量好了随时来找我 😊
-      </div>
-    </div>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-logo">⭐ 星光会</div>
+    <p>年营收过亿的出海创业者都在加入的社群</p>
+    <p style="margin-top:8px">深圳 · 杭州 · 广州 · 义乌 · 东莞 · 济南 · 宁波 · 佛山</p>
+  </footer>
 
-    <div class="obj-card">
-      <div class="obj-q">
-        <span class="tag">其他平台</span>
-        「XX平台也在做外贸培训，感觉差不多」
-      </div>
-      <div class="obj-a">
-        <strong style="color:var(--text)">参考回复：</strong><br><br>
-        是的，市面上确实有很多培训课程 🙂<br><br>
-        星光会的核心差异在于：<strong>秋刀鱼本人的15年实战 + 150+位亿级出海创业者资源库</strong>，这是其他平台没有的。我们的活动是真实连接，不是录课丢给你：<br>
-        · 24场线下面对面活动（训练营+论坛+沙龙+圆桌会）<br>
-        · 500+会员人脉圈，每月持续连接<br>
-        · 秋刀鱼亲自参与的内容和资源对接<br><br>
-        您可以两边对比一下，我们很自信不会让您失望 😊
-      </div>
-    </div>
-
-    <div class="obj-card">
-      <div class="obj-q">
-        <span class="tag">我不是创业者</span>
-        「我是打工的，不是创业者，适合吗？」
-      </div>
-      <div class="obj-a">
-        <strong style="color:var(--text)">参考回复：</strong><br><br>
-        当然适合！星光会不仅面向创业者 🙂<br><br>
-        · 如果你是<strong>外贸业务员</strong>，想提升成单能力、学习谈判技巧，这里有实战课程和成单经验分享<br>
-        · 如果你是<strong>跨境运营</strong>，秋刀鱼的访谈和论坛里有大量一线玩家的经验复盘<br>
-        · 如果你有<strong>创业想法</strong>，这里更是一个了解出海全貌的低成本入口<br><br>
-        其实很多会员都不是"老板"，但都抱着成长心态来的 🙂 您最想提升哪方面？我来帮您看看哪部分最适合您。
-      </div>
-    </div>
-
-  </div>
-
-</div>
-
-<div class="footer">
-  星光会客服知识库 · 仅供内部使用 · v3.0（2026-03-26）
-</div>
-
-<script>
-  function switchModule(name, el) {
-    document.querySelectorAll('.module').forEach(m => m.classList.remove('active'));
-    document.getElementById('mod-' + name).classList.add('active');
-    document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('active'));
-    el.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function toggleCard(el) {
-    el.closest('.card').classList.toggle('open');
-  }
-
-  document.querySelectorAll('.obj-card').forEach(card => {
-    card.querySelector('.obj-q').addEventListener('click', () => {
-      card.classList.toggle('open');
-    });
-  });
-
-  function copyText(btn, name, e) {
-    e.stopPropagation();
-    const text = document.getElementById('welcome-msg').innerText;
-    navigator.clipboard.writeText(text).then(() => {
-      btn.textContent = '已复制 ✓';
-      btn.classList.add('copied');
-      setTimeout(() => {
-        btn.textContent = '复制';
-        btn.classList.remove('copied');
-      }, 2000);
-    });
-  }
-
-  function filterCards(query) {
-    const q = query.trim().toLowerCase();
-    document.querySelectorAll('.module').forEach(mod => {
-      const cards = mod.querySelectorAll('.card[data-keywords], .obj-card[data-keywords]');
-      cards.forEach(card => {
-        const keywords = (card.dataset.keywords || '').toLowerCase();
-        const text = card.innerText.toLowerCase();
-        const match = q === '' || keywords.includes(q) || text.includes(q);
-        card.style.display = match ? '' : 'none';
-      });
-    });
-  }
-</script>
-
+  <script>
+    function toggleFaq(el) {
+      const item = el.parentElement;
+      item.classList.toggle('open');
+    }
+  </script>
 </body>
 </html>
